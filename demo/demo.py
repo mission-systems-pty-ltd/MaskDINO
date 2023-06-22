@@ -9,6 +9,8 @@ import os
 import sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 # fmt: on
+sys.path.append("/usr/lib/python3.8/site-packages/MultiScaleDeformableAttention-1.0-py3.8-linux-x86_64.egg")
+sys.path.append("../detectron2")
 
 import tempfile
 import time

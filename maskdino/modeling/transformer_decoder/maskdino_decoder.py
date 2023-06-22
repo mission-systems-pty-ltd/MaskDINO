@@ -442,12 +442,12 @@ class MaskDINODecoder(nn.Module):
 
         tgt_mask = None
         mask_dict = None
-        if self.dn != "no" and self.training:
-            assert targets is not None
-            input_query_label, input_query_bbox, tgt_mask, mask_dict = \
-                self.prepare_for_dn(targets, None, None, x[0].shape[0])
-            if mask_dict is not None:
-                tgt=torch.cat([input_query_label, tgt],dim=1)
+        # if self.dn != "no" and self.training:
+        #     assert targets is not None
+        #     input_query_label, input_query_bbox, tgt_mask, mask_dict = \
+        #         self.prepare_for_dn(targets, None, None, x[0].shape[0])
+        #     if mask_dict is not None:
+        #         tgt=torch.cat([input_query_label, tgt],dim=1)
 
         # direct prediction from the matching and denoising part in the begining
         if self.initial_pred:

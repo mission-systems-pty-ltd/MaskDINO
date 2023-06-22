@@ -18,6 +18,11 @@ import itertools
 import logging
 import os
 
+import sys
+sys.path.append("/usr/lib/python3.8/site-packages/MultiScaleDeformableAttention-1.0-py3.8-linux-x86_64.egg")
+sys.path.append("../detectron2")
+
+from icecream import ic
 from collections import OrderedDict
 from typing import Any, Dict, List, Set
 

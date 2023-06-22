@@ -7,7 +7,7 @@ import torch
 from torch.nn import functional as F
 
 from detectron2.config import configurable
-from detectron2.data import MetadataCatalog
+from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.data import detection_utils as utils
 from detectron2.data import transforms as T
 from detectron2.projects.point_rend import ColorAugSSDTransform
@@ -83,7 +83,10 @@ class MaskFormerSemanticDatasetMapper:
 
         # Assume always applies to the training set.
         dataset_names = cfg.DATASETS.TRAIN
+        print(dataset_names)
         meta = MetadataCatalog.get(dataset_names[0])
+        meta = meta.set(ignore_label=255)
+        print(meta)
         ignore_label = meta.ignore_label
 
         ret = {

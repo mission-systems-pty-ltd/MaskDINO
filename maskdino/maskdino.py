@@ -338,7 +338,8 @@ class MaskDINO(nn.Module):
             # pad gt
             h, w = targets_per_image.image_size
             image_size_xyxy = torch.as_tensor([w, h, w, h], dtype=torch.float, device=self.device)
-
+            # print("h, w", h ,w)
+            # print("h_pad, w_pad", h, w)
             gt_masks = targets_per_image.gt_masks
             padded_masks = torch.zeros((gt_masks.shape[0], h_pad, w_pad), dtype=gt_masks.dtype, device=gt_masks.device)
             padded_masks[:, : gt_masks.shape[1], : gt_masks.shape[2]] = gt_masks
